@@ -20,6 +20,14 @@ def evaluate_fixed(levels, threshold):
 def simulate(root, output, repetitions=400):
     if repetitions < 1:
         raise ValueError("Repetitions must be positive")
+    target, package = Path(output).resolve(), Path(root).resolve()
+    protected = [package / name for name in (
+        "data", "tests", "results", "docs", "tools", "decision_benchmark", "examples"
+    )]
+    if target == package or any(p == target or p in target.parents for p in protected):
+        raise ValueError("Simulation output must be outside the package inputs")
+    if target.exists():
+        raise ValueError("Use a new simulation output file; existing files are preserved")
     fixture = json.loads((Path(root) / "tests/fixtures/cases.json").read_text())
     real = json.loads((Path(root) / "tests/fixtures/real.json").read_text())["cases"]
     rows, points = [], {}

@@ -21,3 +21,9 @@ Runner tests cover resume without resending accepted responses, shared provider 
 The one-command runner was tested with a local substitute for OpenRouter; packaging made no paid API calls. Synthetic tests retain the known J edge case of exchanging 18 clean answers for 19 correct answers and one error.
 
 The English documentation update preserves frozen benchmark data and numeric results. Generated table labels and the illustrative custom dataset are in English; benchmark tasks and raw answers remain in their original languages.
+
+## Final publication review
+
+A final read-only Claude review of the initial published commit found no P0/P1 issues or errors affecting scores or winners. The category CSV now names baseline and retained accuracy explicitly. Confidence and cost validation, manifest count checks, full-label language metrics, protected output paths, optimized-Python input checks, and the scorer-reference description were corrected. The documented `runs/` directory is excluded from Git.
+
+After these changes, the complete offline acceptance was run again: all 55 existing tests passed, 120,500 responses and 200,500 decisions matched the frozen scorer, and all 10 overall and 60 category results matched the reference. Only `categories.csv` and its checksum in `complete.json` changed among the eight regenerated result files. No new regression tests were added. The raw inputs and benchmark measurements remain unchanged.

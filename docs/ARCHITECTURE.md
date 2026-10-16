@@ -24,6 +24,6 @@ Each rule and external effect has a specific owner.
 
 Change a confidence formula in confidence and its tests; change ranking scales in rating. Configure a new route in a separate routes file. Transport does not own the model catalog. Attempt storage belongs to journal; retry eligibility belongs to execution.
 
-Only verification reads `tests/golden`. Reproduction derives results from data. The pinned scorer in `tests/fixtures` is an independent test oracle for every raw response.
+Only verification reads `tests/golden`. Reproduction derives results from data. The pinned scorer in `tests/fixtures` is a frozen reference implementation used to detect behavioral drift on every raw response. It is not an independently designed scoring algorithm.
 
 `benchmark.py` is the one-command entry point. Bundled and custom corpora use the same execution and scoring path. The known J counterexample remains a visible diagnostic.

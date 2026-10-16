@@ -62,3 +62,7 @@ for answer in read_jsonl('data/responses/liquid--d1.jsonl.gz'):
 ```
 
 Gzip files use fixed mtime=0; tested reproductions yield identical files. Stream JSONL line by line for large analyses. Preserve benchmark text and response languages when analyzing the archive.
+
+## CSV accuracy columns
+
+In both `overall.csv` and `categories.csv`, `accuracy` is baseline accuracy. In `categories.csv`, `baseline_accuracy` is the same explicit baseline value; `retained_accuracy` is accuracy after applying the J-selected threshold. Accuracy and coverage are fractions from 0 to 1. The baseline is the quality component of the rating.

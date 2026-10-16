@@ -65,7 +65,7 @@ Sending requires `--send`. The key is read from the environment and not saved. C
 
 ## Reports and durable records
 
-`report-run` shows task states, valid decision counts, accuracy by model/language/suite/question, and J/U where native confidence exists. A partial run has `complete=false` and `valid_only_accuracy`; do not report this as full-population accuracy.
+`report-run` shows task states, valid decision counts, accuracy by model/language/suite/question, and J/U where native confidence exists. A partial run has `complete=false` and `valid_only_accuracy`; do not report this as full-population accuracy. If confidence is supplied, it must be a finite number in [0, 1]; a malformed value makes the response unsuccessful. Cost totals include only finite, nonnegative numeric costs from accepted responses. `cost_coverage` counts requests with usable cost data; missing or malformed costs are not treated as measured zero-cost requests.
 
 Responses are stored in `attempts/<task_id>/<attempt>/response.json`. The runner durably records intent before sending, then the received response. Records have checksums and prior attempts are not overwritten. Only one process can own a run directory.
 

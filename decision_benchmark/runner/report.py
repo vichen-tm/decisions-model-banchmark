@@ -2,7 +2,7 @@
 
 from collections import Counter, defaultdict
 from ..confidence import choose_threshold
-from ..scoring import score_response
+from ..scoring import score_response, finite_number
 from .execution import task_state
 from .journal import RunJournal
 
@@ -28,9 +28,10 @@ def report_run(directory):
                 )
                 if not scored["complete"]:
                     continue
-                usage = scored.get("usage") or {}
-                if isinstance(usage.get("cost"), (int, float)):
-                    accepted_costs.append(usage["cost"])
+                usage = scored.get("usage")
+                cost = usage.get("cost") if isinstance(usage, dict) else None
+                if finite_number(cost) and cost >= 0:
+                    accepted_costs.append(cost)
                 for question, result in scored["results"].items():
                     key = (
                         task["key"]["model"],

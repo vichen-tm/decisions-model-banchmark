@@ -109,14 +109,18 @@ def validate_case(case):
         if g["type"] != q["type"]:
             raise ValueError("gold_type")
         if q["type"] == "choice":
-            assert g["label"] in keys
+            if g["label"] not in keys:
+                raise ValueError("invalid_gold_label")
         else:
-            assert type(g["label"]) is int and 0 <= g["label"] < len(keys)
+            if type(g["label"]) is not int or not 0 <= g["label"] < len(keys):
+                raise ValueError("invalid_gold_label")
         if "dist" in g:
-            assert len(g["dist"]) == len(keys)
+            if len(g["dist"]) != len(keys):
+                raise ValueError("gold_distribution_length")
             distribution(g["dist"])
             if "keys" in g:
-                assert g["keys"] == keys
+                if g["keys"] != keys:
+                    raise ValueError("gold_distribution_keys")
     return True
 
 
@@ -196,6 +200,11 @@ def score_answer(question, gold, answer):
                     str(i): v for i, v in enumerate(question["criteria"])
                 }:
                     raise ValueError("score_legend_mismatch")
+        native_confidence = answer.get("confidence")
+        if native_confidence is not None and (
+            not finite_number(native_confidence) or not 0 <= native_confidence <= 1
+        ):
+            raise ValueError("invalid_native_confidence")
         target = keys.index(gold["label"]) if kind == "choice" else gold["label"]
         result.update(
             valid=True,
@@ -204,7 +213,7 @@ def score_answer(question, gold, answer):
             gold=gold["label"],
             probabilities=p,
             confidence=p[pred] if p is not None else None,
-            native_confidence=answer.get("confidence"),
+            native_confidence=native_confidence,
             native_score=answer.get("score"),
         )
         if p is not None:

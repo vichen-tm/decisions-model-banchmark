@@ -102,7 +102,15 @@ def build_model_report(model, corpora, grouped, cases, lookup):
             selected = [
                 row for row in grouped[model, language, 1] if row["suite"] == suite
             ]
-            met = metrics([a for row in selected for a in row["results"].values()])
+            labels = sorted({
+                label
+                for row in selected
+                for question in cases[language, row["id"]]["request"]["questions"].values()
+                for label in options(question)
+            })
+            met = metrics(
+                [a for row in selected for a in row["results"].values()], labels
+            )
             english_accuracy = sum(p["suites"][suite]["accuracy"] for p in repeats) / 5
             report["languages"][language + "/" + suite] = {
                 "metrics": met,
@@ -303,7 +311,8 @@ def replay(root, output):
                 "overall": row["overall"],
                 "accuracy": row["baseline_accuracy"],
                 "U_at_J": row["confidence_utility"],
-                **row["result"],
+                **{k: v for k, v in row["result"].items() if k != "accuracy"},
+                "retained_accuracy": row["result"]["accuracy"],
             }
             for row in rating["categories"]
         ],

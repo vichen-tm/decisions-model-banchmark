@@ -42,3 +42,5 @@ The diagnostic expectation that correcting an answer must never introduce a newl
 Use a new, empty output directory. Reproduction rejects protected input locations and does not overwrite existing results. `complete.json` is written last and hashes every generated file. Verification checks this marker, the full generated file set, required fields, unique rows, language results, and prediction stability.
 
 Manifests detect corruption relative to a trusted manifest. They are not an author signature; verify the archive SHA-256 obtained separately when transferring the package.
+
+Simulation output must use a new file outside the package input directories. The command refuses to overwrite existing files, including published validation artifacts. `verify-results` checks the eight replay outputs; the separate simulation and acceptance records describe their own recorded runs.

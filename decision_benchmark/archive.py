@@ -93,6 +93,7 @@ def verify_archive(root=PACKAGE_ROOT):
         for repeat in (range(1, 6) if language == "en" else [1])
     }
     actual = set()
+    decisions = 0
     accepted_tasks = {}
     for row in responses(root):
         key = row["key"]
@@ -103,7 +104,9 @@ def verify_archive(root=PACKAGE_ROOT):
         if row["logical_id"] in accepted_tasks:
             raise ValueError("Duplicate logical task")
         accepted_tasks[row["logical_id"]] = (row["key"], row["body_sha256"])
-        body = request_body(cases[key["language"], key["case"]], routes[key["model"]])
+        case = cases[key["language"], key["case"]]
+        decisions += len(case["request"]["questions"])
+        body = request_body(case, routes[key["model"]])
         if encode(body) != encode(requests[row["body_sha256"]]):
             raise ValueError("Corpus/request mismatch")
         raw = row["raw"]
@@ -115,8 +118,13 @@ def verify_archive(root=PACKAGE_ROOT):
         raise ValueError(
             f"Incomplete campaign: missing={len(expected-actual)}, extra={len(actual-expected)}"
         )
-    if len(actual) != manifest["accepted_requests"]:
-        raise ValueError("Manifest count mismatch")
+    counts = {
+        "accepted_requests": len(actual), "decisions": decisions,
+        "cases": len(cases), "distinct_requests": len(requests),
+    }
+    for name, count in counts.items():
+        if count != manifest[name]:
+            raise ValueError("Manifest count mismatch: " + name)
     return {
         "accepted_requests": len(actual),
         "cases": len(cases),

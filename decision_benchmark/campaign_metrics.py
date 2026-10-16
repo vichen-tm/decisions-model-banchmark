@@ -29,7 +29,8 @@ def percentiles(xs):
 
 def metrics(qq, labels=None):
     n = len(qq)
-    assert n and all((q["valid"] for q in qq))
+    if not n or not all(q["valid"] for q in qq):
+        raise ValueError("Metrics require nonempty valid decisions")
     labels = labels or sorted(
         {str(q["gold"]) for q in qq} | {str(q["prediction"]) for q in qq}
     )

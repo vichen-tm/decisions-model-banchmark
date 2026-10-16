@@ -43,9 +43,12 @@ def execute_runner_command(args):
     from .execution import prepare, run, resolve_unknown
 
     if args.command == "prepare":
-        data, target = (args.root / "data").resolve(), args.run_dir.resolve()
-        if target == data or data in target.parents:
-            raise ValueError("New runs must be outside immutable data/")
+        root, target = args.root.resolve(), args.run_dir.resolve()
+        protected = [root / name for name in (
+            "data", "tests", "results", "docs", "tools", "decision_benchmark", "examples"
+        )]
+        if target == root or any(p == target or p in target.parents for p in protected):
+            raise ValueError("New runs must be outside the package inputs")
         routes = json.loads(args.routes.read_text()) if args.routes else None
         return prepare(
             args.root,
