@@ -1,0 +1,1 @@
+{"integrity":{"accepted_requests":120500,"cases":3850,"distinct_requests":38500,"files":48},"tests":55,"oracle_requests":120500,"oracle_decisions":200500,"comparison":{"passed":true,"overall_rows":10,"category_rows":60,"campaign_models":10,"float_comparisons":30898,"max_absolute_deviation":1.865174681370263e-14,"tolerance":1e-10},"network":"denied by socket guard"}

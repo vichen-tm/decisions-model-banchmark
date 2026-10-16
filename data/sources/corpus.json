@@ -1,0 +1,38 @@
+{
+  "english": {
+    "version": "english-v2",
+    "cases": 2050,
+    "decisions": 3650,
+    "suite_cases": {
+      "ag_news": 200,
+      "banking77": 200,
+      "sst2": 200,
+      "sst5": 200,
+      "emotion": 200,
+      "boolq": 200,
+      "xnli_en": 150,
+      "typed-decisions": 400,
+      "proofwriter": 300
+    },
+    "question_types": {
+      "noul": 1000,
+      "score": 1000,
+      "choice": 1650
+    }
+  },
+  "translations": {
+    "version": "languages-v3",
+    "languages": [
+      "uk",
+      "ar",
+      "es",
+      "zh"
+    ],
+    "cases_per_language": 450,
+    "suites": [
+      "xnli_en",
+      "proofwriter"
+    ],
+    "source_links": "See datasets.json; per-case provenance and translation hashes are stored in corpus records."
+  }
+}

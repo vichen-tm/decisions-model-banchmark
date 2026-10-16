@@ -1,0 +1,145 @@
+[
+  {
+    "dataset": "stanfordnlp/sst2",
+    "config": "default",
+    "split": "validation",
+    "url": "https://huggingface.co/datasets/stanfordnlp/sst2/resolve/refs%2Fconvert%2Fparquet/default/validation/0000.parquet",
+    "file": "stanfordnlp_sst2--default--validation.parquet",
+    "rows": 872,
+    "sha256": "fb00fe008f6828f86ba2beda8415a4cf5da0c884f21c5f238c87131b5aa19529",
+    "suite": "sst2",
+    "selected_cases": 200,
+    "license_metadata": [
+      "unknown"
+    ],
+    "metadata_url": "https://huggingface.co/api/datasets/stanfordnlp/sst2",
+    "metadata_revision_observed": "8d51e7e4887a4caaa95b3fbebbf53c0490b58bbb",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "SetFit/sst5",
+    "config": "default",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/SetFit/sst5/resolve/refs%2Fconvert%2Fparquet/default/test/0000.parquet",
+    "file": "SetFit_sst5--default--test.parquet",
+    "rows": 2210,
+    "sha256": "9fa90baaa1b7f9274d0e0d7228e895111aa66aace9228b464c62150d2ea45149",
+    "suite": "sst5",
+    "selected_cases": 200,
+    "license_metadata": "not declared in card",
+    "metadata_url": "https://huggingface.co/api/datasets/SetFit/sst5",
+    "metadata_revision_observed": "e51bdcd8cd3a30da231967c1a249ba59361279a3",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "mteb/banking77",
+    "config": "default",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/mteb/banking77/resolve/refs%2Fconvert%2Fparquet/default/test/0000.parquet",
+    "file": "mteb_banking77--default--test.parquet",
+    "rows": 3076,
+    "sha256": "9575f636fdeae0c94a0f3f2d926ca8f9a2833b998cf94108936dfd5d72322bf9",
+    "suite": "banking77",
+    "selected_cases": 200,
+    "license_metadata": "mit",
+    "metadata_url": "https://huggingface.co/api/datasets/mteb/banking77",
+    "metadata_revision_observed": "18072d2685ea682290f7b8924d94c62acc19c0b2",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "LocalLLaMA/typed-decisions",
+    "config": "all",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/LocalLLaMA/typed-decisions/resolve/refs%2Fconvert%2Fparquet/all/test/0000.parquet",
+    "file": "LocalLLaMA_typed-decisions--all--test.parquet",
+    "rows": 400,
+    "sha256": "4f294f218ea1da27f3efef936359389c62ea4d3973a41457732990f1d31b647c",
+    "suite": "typed-decisions",
+    "selected_cases": 400,
+    "license_metadata": "apache-2.0",
+    "metadata_url": "https://huggingface.co/api/datasets/LocalLLaMA/typed-decisions",
+    "metadata_revision_observed": "c806f6c69d734f29436f25536138547031a673d6",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "dair-ai/emotion",
+    "config": "split",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/dair-ai/emotion/resolve/refs%2Fconvert%2Fparquet/split/test/0000.parquet",
+    "file": "dair-ai_emotion--split--test.parquet",
+    "rows": 2000,
+    "sha256": "6f8407fa1ca9c310f55781f082ed73812f6551e8dda2c61973123a121869245b",
+    "suite": "emotion",
+    "selected_cases": 200,
+    "license_metadata": [
+      "other"
+    ],
+    "metadata_url": "https://huggingface.co/api/datasets/dair-ai/emotion",
+    "metadata_revision_observed": "cab853a1dbdf4c42c2b3ef2173804746df8825fe",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "fancyzhx/ag_news",
+    "config": "default",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/fancyzhx/ag_news/resolve/refs%2Fconvert%2Fparquet/default/test/0000.parquet",
+    "file": "fancyzhx_ag_news--default--test.parquet",
+    "rows": 7600,
+    "sha256": "71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb",
+    "suite": "ag_news",
+    "selected_cases": 200,
+    "license_metadata": [
+      "unknown"
+    ],
+    "metadata_url": "https://huggingface.co/api/datasets/fancyzhx/ag_news",
+    "metadata_revision_observed": "eb185aade064a813bc0b7f42de02595523103ca4",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "google/boolq",
+    "config": "default",
+    "split": "validation",
+    "url": "https://huggingface.co/datasets/google/boolq/resolve/refs%2Fconvert%2Fparquet/default/validation/0000.parquet",
+    "file": "google_boolq--default--validation.parquet",
+    "rows": 3270,
+    "sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8",
+    "suite": "boolq",
+    "selected_cases": 200,
+    "license_metadata": [
+      "cc-by-sa-3.0"
+    ],
+    "metadata_url": "https://huggingface.co/api/datasets/google/boolq",
+    "metadata_revision_observed": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "facebook/xnli",
+    "config": "en",
+    "split": "test",
+    "url": "https://huggingface.co/datasets/facebook/xnli/resolve/refs%2Fconvert%2Fparquet/en/test/0000.parquet",
+    "file": "facebook_xnli--en--test.parquet",
+    "rows": 5010,
+    "sha256": "8f0fd1e105091e0f11cd37f9b2bc382f16de9949aa9471e1366b2605ba037167",
+    "suite": "xnli_en",
+    "selected_cases": 150,
+    "license_metadata": "not declared in card",
+    "metadata_url": "https://huggingface.co/api/datasets/facebook/xnli",
+    "metadata_revision_observed": "b8dd5d7af51114dbda02c0e3f6133f332186418e",
+    "revision_note": "Observed now; archived parquet is identified by SHA-256, not retroactively assigned this revision."
+  },
+  {
+    "dataset": "ProofWriter",
+    "suite": "proofwriter",
+    "version": "V2020.12.3",
+    "project_url": "https://allenai.org/data/proofwriter",
+    "paper_url": "https://aclanthology.org/2021.findings-acl.317/",
+    "url": "https://aristo-data-public.s3.amazonaws.com/proofwriter/proofwriter-dataset-V2020.12.3.zip",
+    "sha256": "bbc5694901e8306d0bd659aa1ad53ccfd02c201864f4b320ffa3777827d1fc26",
+    "member": "proofwriter-dataset-V2020.12.3/OWA/depth-5/meta-test.jsonl",
+    "member_sha256": "c09fad796aaf546d6fcbfc77ecf91f935ffed3c936c2b0e96f4aa57211fad842",
+    "split": "test",
+    "selected_cases": 300,
+    "seed": 20261014,
+    "license_metadata": "No LICENSE file found in the source archive; README present."
+  }
+]
